@@ -29,7 +29,7 @@ func Test_serialize_and_store(t *testing.T) {
 	lsys.SetWriteStorage(&store)
 	lp := cidlink.LinkPrototype{Prefix: cid.Prefix{
 		Version:  1,           // Usually '1'.
-		Codec:    cid.DagCBOR, // TODO(@ckartik): move this to cbor https://github.com/multiformats/multicodec/
+		Codec:    cid.DagJSON, // TODO(@ckartik): move this to cbor https://github.com/multiformats/multicodec/
 		MhType:   0x13,        // 0x20 means "sha2-512" -- See the multicodecs table: https://github.com/multiformats/multicodec/
 		MhLength: 64,          // sha2-512 hash has a 64-byte sum.
 	}}
