@@ -2,17 +2,15 @@ package main
 
 import (
 	"fmt"
-	"strings"
 
-	ipfs "github.com/ipfs/go-ipfs-api"
+	ipld "github.com/ipld/go-ipld-prime"
+  cbor "github.com/ipld/go-ipld-prime/codec/dagcbor"
 )
 
 func main() {
-	shell := ipfs.NewShell("localhost:5001")
-	cid, err := shell.Add(strings.NewReader("hello"))
-	if err != nil {
-		fmt.Println(err)
-	}
+
 	fmt.Println(cid)
+  
+	ipld.Marshal(cbor.Encoder, struct { var string } {string:"Kartik"})
 	fmt.Println("Hello")
 }
